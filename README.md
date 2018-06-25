@@ -23,14 +23,14 @@ Between the server and client, you'll need two terminal tabs! Because we're usin
 
 ## BASE MODE
 
-- Use `axios` to retrieve (`GET`) data from to `/gallery` and store it in `App.js`.
-- Create a new **component** for the `GalleryList`.
-- Create a new **component** called `GalleryItem.js` and pass it the individual gallery items via `props`. 
-- Display all of the images on the screen.
-- Swap the image with the description on click.
-- Display the number likes for each item and include a like button.
-- When the like button is clicked, use `Axios` to update (`PUT`) the like count `/gallery/like/:id`.
-- Update the gallery each time a like button is clicked.
+[x] Use `axios` to retrieve (`GET`) data from to `/gallery` and store it in `App.js`.
+[x] Create a new **component** for the `GalleryList`.
+[x] Create a new **component** called `GalleryItem.js` and pass it the individual gallery items via `props`. 
+[] Display all of the images on the screen.
+[] Swap the image with the description on click.
+[] Display the number likes for each item and include a like button.
+[] When the like button is clicked, use `Axios` to update (`PUT`) the like count `/gallery/like/:id`.
+[] Update the gallery each time a like button is clicked.
 
 ### Wireframes
 
