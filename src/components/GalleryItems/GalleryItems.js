@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './GalleryItem.css';
 
 // this.state ={
 // newList:{
@@ -10,6 +11,12 @@ import React, { Component } from 'react';
 
 
 class GalleryItems extends Component {
+    constructor() {
+    super();
+    this.state = {
+    showDescription: false
+    }
+}
     render() {
         return (
             <div>

@@ -6,7 +6,7 @@ class GalleryList extends Component {
         return (
             <div>
                 <ul>
-                    <li key={this.props.description}>{this.props.description}</li>
+                   
                 </ul>
             </div>
         );
