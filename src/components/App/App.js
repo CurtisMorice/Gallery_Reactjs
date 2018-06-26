@@ -3,16 +3,27 @@ import axios from 'axios';
 import GalleryItems from '../GalleryItems/GalleryItems';
 import GalleryLists from '../GalleryList/GalleryList'; 
 import Header from '../Header/Header';
-import { Card, CardHeader, CardBody, CardFooter } from "react-simple-card";
-import {withStyles} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core';
+import { MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import orange from '@material-ui/core/colors/orange';
+import GalleryList from '../GalleryList/GalleryList';
 
 
-//added to props as classes (this.props.classes.root)
 const styles = {
   root: {
-    backgroundColor: 'darkgray', //style
+    backgroundColor: 'darkgray'
   }
 }
+
+const theme = createMuiTheme({
+             palette: {
+             primary: orange
+}
+
+})
+
+
+
 
 class App extends Component {
 
@@ -58,60 +69,23 @@ putLike = (photoId) =>{
 }
 
 
-// getLists = ()=>{
-//   console.log('in getLists ', this.getLists);
-//   axios.get('/gallery')
-//   .then((response)=>{
-// console.log('in getLists promise', response);
-// this.setState({currentList: [...this.state.currentList, ...response.data.description]});
-//   }).catch((error)=>{
-//     console.log('error in getLists', error);
-    
-//   });
-// }
-
-
-
-
-
   render() {
    // can put .map() IN HERE
    //const data = {this.state.galleryItem.map((item)})
    
-    return (
-     
-        
-      
-      <div className={this.props.classes.root}>
+    return (  
+      <MuiThemeProvider theme={theme}>
+          <div className={this.props.classes.root}>
          <Header />
-        <GalleryLists galleryItems={this.state.galleryItems} likePhoto={this.likePhoto}/>
-     <section>
-   
-   {this.state.galleryItems.map( picture => 
+         <GalleryList galleryItems={this.state.galleryItems} putLike={this.putLike}/>
+     
 
-   <Card key={picture.id} className="card">
-   <CardHeader > <img src={picture.path} alt="" className="galleryImage" /> </CardHeader>
-   <CardBody> <p>{picture.title} <br/> </p></CardBody>
-   <CardFooter>Likes: {picture.likes} <br/> 
-      <button className="btn btn-xl" onClick={()=>this.putLike(picture.id)}>Like Me Please?</button></CardFooter>
-   </Card>)
-   
-  }
-</section>
-               <br/> 
-               <br/> 
-               <br/> 
-               <br/>  
-               <br/> 
-               <br/> 
-               <br/> 
-               <br/> 
-                      {/* used for testing the Array */}
-                      {JSON.stringify(this.state.galleryItems)}
+                      {/* used for testing the Array
+                      {JSON.stringify(this.state.galleryItems)} */}
 
-</div>
-      
-    );
+          </div>
+      </MuiThemeProvider>
+              );
   }
 }
 
