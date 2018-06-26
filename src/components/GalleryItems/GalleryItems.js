@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './GalleryItem.css';
+import '../GalleryItems//GalleryItem.css';
 import GalleryList from '../GalleryList/GalleryList';
 import { Card, CardHeader, CardBody, CardFooter } from "react-simple-card";
 
@@ -33,27 +33,23 @@ class GalleryItems extends Component {
         }
             return ( 
 
-                <div >
-                    <ul>
-                        <li onClick={this.toggleDescription}>
-                            {itemToRender}
-                        </li>
-                    </ul>
-                </div>
-
-            //  <Card key={this.props.itemInfo.id} onClick={this.toggleDescription} className="card">     
-            // <CardHeader > {itemToRender} </CardHeader>
-            // <CardBody> <p>{this.props.itemInfo.title} <br/> </p></CardBody>
-            // <CardFooter>Likes: {this.props.itemInfo.likes} <br/> 
-            //     <button  onClick={()=> this.props.putLike(this.props.itemInfo.id)}>Like Me Please?</button></CardFooter>
-            // </Card>
-      
+            <container onClick={this.toggleDescription}>
+                 <Card key={this.props.itemInfo.id}  className="card">     
+                    <CardHeader > {itemToRender} </CardHeader>
+                    <CardBody> <p>{this.props.itemInfo.title} <br/> </p></CardBody>
+                    < CardFooter>Likes: {this.props.itemInfo.likes} <br/> 
+                        <button  onClick={()=> this.props.putLike(this.props.itemInfo.id)}>
+                        Like Me Please?</button></CardFooter>
+                </Card>
+            </container>
         
             )
         }
+    }
+
             
 
-}
+
 
 
 
