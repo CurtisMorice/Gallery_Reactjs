@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import GalleryItems from '../GalleryItems/GalleryItems';
+
 import GalleryLists from '../GalleryList/GalleryList'; 
 import Header from '../Header/Header';
 import {withStyles} from '@material-ui/core';
 import { MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import orange from '@material-ui/core/colors/orange';
+import red from '@material-ui/core/colors/red';
 import GalleryList from '../GalleryList/GalleryList';
 
 
 const styles = {
   root: {
-    backgroundColor: 'darkgray'
+    backgroundColor: 'orange'
   }
 }
 
 const theme = createMuiTheme({
              palette: {
-             primary: orange
+             primary: red
 }
 
 })
@@ -74,18 +75,17 @@ putLike = (photoId) =>{
    //const data = {this.state.galleryItem.map((item)})
    
     return (  
-      <MuiThemeProvider theme={theme}>
-          <div className={this.props.classes.root}>
-         <Header />
-         <GalleryList galleryItems={this.state.galleryItems} putLike={this.putLike}/>
-     
+        <MuiThemeProvider theme={theme}>
+              <div className={this.props.classes.root}>
+         
+            <Header  />
+            <GalleryList galleryItems={this.state.galleryItems} putLike={this.putLike}/>
 
-                      {/* used for testing the Array
-                      {JSON.stringify(this.state.galleryItems)} */}
+              </div>
+        </MuiThemeProvider>
 
-          </div>
-      </MuiThemeProvider>
-              );
+     );
+              
   }
 }
 

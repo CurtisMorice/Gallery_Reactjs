@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import GalleryItems from '../GalleryItems/GalleryItems';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 
 const styles = theme => ({
     root: {
@@ -11,33 +13,35 @@ const styles = theme => ({
       backgroundColor: theme.palette.background.paper,
     },
     gridList: {
-      width: 600,
-      height: 600,
+      width: 400,
+      height: 400,
     },
     subheader: {
       width: '100%',
     },
   });
+
 class GalleryList extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         
     }
     
     render() {
        
         return (
-            <section>
-   
-            {this.props.galleryItems.map( item => 
+            
+            <div className={this.props.root}>
+              <GridList cellHeight={160} className={this.props.gridList} cols={3}>
+            {this.props.galleryItems.map( item => (
              <GalleryItems key={item.id} itemInfo={item} putLike={this.props.putLike} />
             
             
-            )}
-        
-            
-        </section>
+         ))}
+                </GridList>
+            </div>
         );
+        
     }
 }
 

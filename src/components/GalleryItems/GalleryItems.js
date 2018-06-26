@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+import { render } from "react-dom";
 import '../GalleryItems//GalleryItem.css';
 import GalleryList from '../GalleryList/GalleryList';
-import { Card, CardHeader, CardBody, CardFooter } from "react-simple-card";
+import {  Card, CardHeader, CardBody, CardFooter } from "react-simple-card";
+import { GridListTile } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
 
-
+const styles = theme => ({
+    button: {
+      margin: theme.spacing.unit,
+    },
+  });
+  
 
 class GalleryItems extends Component {
     constructor() {
@@ -32,17 +41,22 @@ class GalleryItems extends Component {
             itemToRender = <img className="gallery-image" src={this.props.itemInfo.path} />
         }
             return ( 
-
-            <container onClick={this.toggleDescription}>
+                <GridListTile col={2}>
+            <div onClick={this.toggleDescription} >
                  <Card key={this.props.itemInfo.id}  className="card">     
                     <CardHeader > {itemToRender} </CardHeader>
-                    <CardBody> <p>{this.props.itemInfo.title} <br/> </p></CardBody>
                     < CardFooter>Likes: {this.props.itemInfo.likes} <br/> 
-                        <button  onClick={()=> this.props.putLike(this.props.itemInfo.id)}>
-                        Like Me Please?</button></CardFooter>
+                    <div>
+                    <CardBody  > <p>{this.props.itemInfo.title} <br/> </p></CardBody>
+                    
+                        <Button onClick={()=> this.props.putLike(this.props.itemInfo.id)} variant="fab" color="secondary" aria-label="edit" className={this.props.itemInfo.button}>
+                        <Icon> L</Icon>
+                        </Button>
+                        </div>
+                       </CardFooter>
                 </Card>
-            </container>
-        
+                </div>
+                </GridListTile>
             )
         }
     }
